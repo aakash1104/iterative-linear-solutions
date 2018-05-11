@@ -25,7 +25,7 @@ The most common iterative algorithms that exist to solve linear systems are:
 
 ## The Iterative Jacobi Method
 
-TODO
+TODO: Write about high level algorithm and mention implementation methods.
 
 ## References
 
