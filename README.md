@@ -2,7 +2,7 @@
 
 ## Author
 
-<center> _**Aakash Prabhu**_, University of California, Davis. </center>
+<p align="center"> _**Aakash Prabhu**_, University of California, Davis. </p>
 
 <center> _**aakprabhu**_ [at] _**ucdavis**_ [dot] _**edu**_ </center>
 
