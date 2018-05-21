@@ -1,7 +1,8 @@
 import numpy
+import sys
 from pprint import pprint
 
-MAX_ITERATIONS = 100
+MAX_ITERATIONS = 1000
 
 """
 Jacobi() - Iterative Jacobi Method to solve a linear system of equations
@@ -28,26 +29,31 @@ def Jacobi(A, b):
         check = (abs(x_new - x) <= limit)
 
         if (check[0] == True and check[1] == True):
-            print i + 1, "iterations for convergence"
+            print i + 1, "iteration(s) for convergence"
             x = x_new
             break
         # If we don't reach tolerence limit within MAX_ITERATIONS.
         if (i == MAX_ITERATIONS - 1 and check[0] != True and check[1] != True):
-            return "Could not achieve convergence"
+            return -1
 
         x = x_new
     return x
 
 def main():
 
-    A = numpy.array([[2.0 ,1.0], [5.0, 7.0]])
-    b = numpy.array([11.0, 13.0])
+    if (len(sys.argv) != 3):
+        print "Usage: jacobi.py test_<num>.txt test_vector_<num>.txt"
+        sys.exit(0)
 
-    print ("A:")
-    pprint(A)
-    
-    print ("b:")
-    pprint(b)
+    split_cols = int((sys.argv[1].split('_')[1]).split('.')[0])
+
+    A = numpy.loadtxt(sys.argv[1], usecols=range(split_cols))
+    b = numpy.loadtxt(sys.argv[2])
+    # print ("A:")
+    # pprint(A)
+    #
+    # print ("b:")
+    # pprint(b)
 
     sol = Jacobi(A,b)
 
